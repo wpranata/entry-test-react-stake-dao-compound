@@ -1,0 +1,28 @@
+{
+  "name": "entry-test-react-stake-dao-compound",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy:std20:sepolia": "dotenv -- npm run _deploy:std20:sepolia",
+    "verify:std20:sepolia": "dotenv -- npm run _verify:std20:sepolia",
+    "upgrade:std20:sepolia": "dotenv -- npm run _upgrade:std20:sepolia",
+    "deploy:stakedao:sepolia": "dotenv -- npm run _deploy:stakedao:sepolia",
+    "verify:stakedao:sepolia": "dotenv -- npm run _verify:stakedao:sepolia",
+    "upgrade:stakedao:sepolia": "dotenv -- npm run _upgrade:stakedao:sepolia",
+
+    "_deploy:std20:sepolia": "npm run compile && hardhat deploy:std20 --name $TOKEN_NAME --symbol $TOKEN_SYMBOL --initial-supply $TOKEN_INITIAL_SUPPLY --force-redeploy-impl --network sepolia",
+    "_verify:std20:sepolia": "hardhat verify-proxy --contract-name STD20 --network sepolia",
+    "_upgrade:std20:sepolia": "npm run compile && hardhat upgrade-proxy --contract-name STD20 --network sepolia",
+    "_deploy:stakedao:sepolia": "npm run compile && hardhat deploy:stakedao --allocated-rewards $STAKEDAO_ALLOCATED_REWARD --reward-emission $STAKEDAO_REWARD_EMISSION --emission-period-seconds $STAKEDAO_EMISSION_PERIOD_SECONDS --force-redeploy-impl --network sepolia",
+    "_verify:stakedao:sepolia": "hardhat verify-proxy --contract-name StakeDao --network sepolia",
+    "_upgrade:stakedao:sepolia": "npm run compile && hardhat upgrade-proxy --contract-name StakeDao --network sepolia"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@openzeppelin/contracts-upgradeable": "^5.0.2",
+    "@openzeppelin/hardhat-upgrades": "^3.0.5",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.1",
+    "hardhat": "^2.22.2"
+  }
+}

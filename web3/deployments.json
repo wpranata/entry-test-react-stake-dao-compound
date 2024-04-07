@@ -1,0 +1,12 @@
+[
+  {
+    "contract": "STD20",
+    "proxyAddress": "0x42Eb2449Db6b2722Ae95da0a79529f7FD73BfD77",
+    "network": "sepolia"
+  },
+  {
+    "contract": "StakeDao",
+    "proxyAddress": "0x9ae50343bC5A08f85ba4F379dcFaC177f8092cF6",
+    "network": "sepolia"
+  }
+]
